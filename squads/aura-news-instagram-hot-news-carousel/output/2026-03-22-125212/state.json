@@ -1,0 +1,64 @@
+{
+  "squad": "aura-news-instagram-hot-news-carousel",
+  "status": "completed",
+  "step": { "current": 9, "total": 9, "label": "step-09-instagram-publish" },
+  "agents": [
+    {
+      "id": "trend-researcher",
+      "name": "Trend Researcher",
+      "icon": "🔎",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "carousel-strategist",
+      "name": "Carousel Strategist",
+      "icon": "🧠",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "carousel-copywriter",
+      "name": "Carousel Copywriter",
+      "icon": "✍️",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "quality-reviewer",
+      "name": "Quality Reviewer",
+      "icon": "✅",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "visual-designer",
+      "name": "Visual Designer",
+      "icon": "🎨",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 2, "row": 2 }
+    },
+    {
+      "id": "instagram-publisher",
+      "name": "Instagram Publisher",
+      "icon": "🚀",
+      "status": "done",
+      "deliverTo": null,
+      "desk": { "col": 3, "row": 2 }
+    }
+  ],
+  "handoff": {
+    "from": "instagram-publisher",
+    "to": null,
+    "message": "Carrossel publicado com sucesso no Instagram.",
+    "completedAt": "2026-03-22T13:22:00.000Z"
+  },
+  "startedAt": "2026-03-22T12:52:12.000Z",
+  "updatedAt": "2026-03-22T13:22:00.000Z",
+  "completedAt": "2026-03-22T13:22:00.000Z"
+}
