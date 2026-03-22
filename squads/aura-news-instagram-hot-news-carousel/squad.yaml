@@ -1,0 +1,49 @@
+code: aura-news-instagram-hot-news-carousel
+name: Aura News Hot Carousel Auto Publisher
+icon: "📰"
+description: Gera carrosseis de Instagram a partir de noticias quentes de IA e inovacao, cria imagens e publica com fluxo de aprovacao.
+language: pt-BR
+performance_mode: alta_performance
+created_at: 2026-03-21
+
+objective:
+  primary: Transformar noticias quentes em carrosseis claros, visuais e prontos para publicacao.
+  target_audience: publico geral
+  platform: instagram
+  format_focus:
+    - instagram-feed
+
+references:
+  profiles:
+    - https://www.instagram.com/evolving.ai/
+    - https://www.instagram.com/cataiportal/
+    - https://www.instagram.com/artificialintelligenceee/
+    - https://www.instagram.com/innovation/
+  investigation_mode: profile_5_10
+
+skills:
+  - web_search
+  - web_fetch
+  - image-generator
+  - instagram-publisher
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+pipeline:
+  file: pipeline/pipeline.yaml
+  steps:
+    - step-01-breaking-news-research.md
+    - step-02-angle-strategy.md
+    - step-03-checkpoint-news-angle.md
+    - step-04-carousel-copy.md
+    - step-05-review-copy.md
+    - step-06-checkpoint-before-design.md
+    - step-07-visual-design.md
+    - step-08-checkpoint-before-publish.md
+    - step-09-instagram-publish.md

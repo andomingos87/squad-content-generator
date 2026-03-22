@@ -1,0 +1,36 @@
+name: aura-news-instagram-hot-news-carousel
+description: Pipeline para transformar noticias quentes em carrossel e publicar no Instagram com checkpoints.
+
+steps:
+  - id: step-01-breaking-news-research
+    file: steps/step-01-breaking-news-research.md
+    agent: trend-researcher
+  - id: step-02-angle-strategy
+    file: steps/step-02-angle-strategy.md
+    agent: carousel-strategist
+  - id: step-03-checkpoint-news-angle
+    file: steps/step-03-checkpoint-news-angle.md
+    type: checkpoint
+  - id: step-04-carousel-copy
+    file: steps/step-04-carousel-copy.md
+    agent: carousel-copywriter
+  - id: step-05-review-copy
+    file: steps/step-05-review-copy.md
+    agent: quality-reviewer
+  - id: step-06-checkpoint-before-design
+    file: steps/step-06-checkpoint-before-design.md
+    type: checkpoint
+  - id: step-07-visual-design
+    file: steps/step-07-visual-design.md
+    agent: visual-designer
+  - id: step-08-checkpoint-before-publish
+    file: steps/step-08-checkpoint-before-publish.md
+    type: checkpoint
+  - id: step-09-instagram-publish
+    file: steps/step-09-instagram-publish.md
+    agent: instagram-publisher
+
+checkpoints:
+  - step-03-checkpoint-news-angle
+  - step-06-checkpoint-before-design
+  - step-08-checkpoint-before-publish

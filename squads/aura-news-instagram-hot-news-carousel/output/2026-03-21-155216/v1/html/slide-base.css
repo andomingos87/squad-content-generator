@@ -1,0 +1,200 @@
+/**
+ * Aura News — carrossel estilo "notícia IG" (referências: overlay inferior + sans bold).
+ * Viewport: 1080 x 1350 (4:5). Ver carousel-assets.md da run.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Source+Sans+3:wght@450;500;600&display=swap");
+
+:root {
+  --slide-w: 1080px;
+  --slide-h: 1350px;
+  --aura: #0b3d5c;
+  --aura-glow: #2bd4c7;
+  --accent-keyword: #7dd3fc;
+  --text-muted: rgba(255, 255, 255, 0.82);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: var(--slide-w);
+  height: var(--slide-h);
+  overflow: hidden;
+}
+
+/* ---------- Layout comum: faixa superior + texto em overlay inferior ---------- */
+.slide {
+  width: var(--slide-w);
+  height: var(--slide-h);
+  position: relative;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  color: #fff;
+  background: #050a10;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 12%, rgba(11, 61, 92, 0.65) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 35% at 85% 25%, rgba(43, 212, 199, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #0f2840 0%, #0a1628 42%, #050a10 100%);
+  pointer-events: none;
+}
+
+.slide-inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 52px 0;
+}
+
+.brand-top {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.visual-spacer {
+  flex: 1 1 auto;
+  min-height: 120px;
+}
+
+.text-panel {
+  margin-top: auto;
+  margin-left: -52px;
+  margin-right: -52px;
+  padding: 56px 52px 48px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 10, 16, 0) 0%,
+    rgba(5, 10, 16, 0.55) 12%,
+    rgba(5, 10, 16, 0.94) 42%,
+    rgba(2, 4, 8, 0.98) 100%
+  );
+}
+
+h1.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.12;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+h1.title .accent {
+  color: var(--accent-keyword);
+}
+
+p.body {
+  margin-top: 22px;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.38;
+  color: var(--text-muted);
+  max-width: 976px;
+}
+
+p.lead {
+  margin-top: 20px;
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 976px;
+}
+
+.handle {
+  margin-top: 28px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: var(--aura-glow);
+}
+
+.swipe-hint {
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.72);
+  text-transform: uppercase;
+}
+
+/* ---------- Capa: hierarquia reforçada ---------- */
+.slide--cover .text-panel {
+  padding-top: 64px;
+}
+
+.slide--cover h1.title {
+  font-size: 48px;
+}
+
+/* ---------- Slide CTA final ---------- */
+.slide--cta {
+  justify-content: center;
+}
+
+.slide--cta::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 35%, rgba(11, 61, 92, 0.5) 0%, transparent 60%),
+    linear-gradient(180deg, #0a1a2e 0%, #050a10 100%);
+}
+
+.slide--cta .cta-inner {
+  position: relative;
+  z-index: 1;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.slide--cta h1.title {
+  font-size: 52px;
+  margin-bottom: 8px;
+}
+
+.slide--cta p.body {
+  font-size: 30px;
+  margin-top: 28px;
+}
+
+.slide--cta .handle-large {
+  margin-top: 36px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.slide--cta .kicker-small {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+}

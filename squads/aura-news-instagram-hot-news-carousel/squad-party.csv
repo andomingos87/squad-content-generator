@@ -1,0 +1,7 @@
+id,displayName,icon,path,execution
+trend-researcher,Trend Researcher,🔎,./agents/trend-researcher.agent.md,subagent
+carousel-strategist,Carousel Strategist,🧠,./agents/carousel-strategist.agent.md,inline
+carousel-copywriter,Carousel Copywriter,✍️,./agents/carousel-copywriter.agent.md,subagent
+quality-reviewer,Quality Reviewer,✅,./agents/quality-reviewer.agent.md,inline
+visual-designer,Visual Designer,🎨,./agents/visual-designer.agent.md,subagent
+instagram-publisher,Instagram Publisher,🚀,./agents/instagram-publisher.agent.md,inline

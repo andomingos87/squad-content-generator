@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Opensquad — sessão do navegador (cookies, login; não versionar)
+_opensquad/_browser_profile/
+
+# Build / bundler (dashboard Vite)
+dashboard/dist/
+dashboard/.vite/
+*.tsbuildinfo
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Playwright (testes / relatórios locais)
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+
+# SO
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDEs e editores
+.idea/
+*.swp
+*.swo
+*~
+
+# Ferramentas / caches locais
+.cache/
+.turbo/
+coverage/
+*.local
