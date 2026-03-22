@@ -5,6 +5,14 @@
       "destination": "/api/meta-oauth-callback"
     },
     {
+      "source": "/meta/deauthorize",
+      "destination": "/api/meta-deauthorize"
+    },
+    {
+      "source": "/meta/data-deletion",
+      "destination": "/api/meta-data-deletion"
+    },
+    {
       "source": "/meta-webhook",
       "destination": "/api/meta-webhook"
     },
