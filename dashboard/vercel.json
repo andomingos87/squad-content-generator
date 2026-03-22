@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/meta/oauth/callback",
+      "destination": "/api/meta-oauth-callback"
+    },
+    {
       "source": "/meta-webhook",
       "destination": "/api/meta-webhook"
     },
