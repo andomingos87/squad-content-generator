@@ -22,23 +22,40 @@ export function parseArgs(argv) {
   return args;
 }
 
-// ── Image upload (catbox.moe) ─────────────────────────────────
+// ── Image upload (Litterbox / catbox.moe) ─────────────────────
+// Instagram valida o HEAD do image_url; URLs de files.catbox.moe devolvem
+// Content-Length 0 no HEAD e falham (erro 9004). Litterbox devolve tamanho correto.
+
+const LITTERBOX_API = 'https://litterbox.catbox.moe/resources/internals/api.php';
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
 
 export async function uploadToCatbox(imagePath) {
   const absolutePath = resolve(imagePath);
   const fileBuffer = readFileSync(absolutePath);
   const fileName = absolutePath.split(/[\\/]/).pop();
-  const blob = new Blob([fileBuffer], { type: 'image/jpeg' });
-  const form = new FormData();
-  form.append('reqtype', 'fileupload');
-  form.append('fileToUpload', blob, fileName);
-  const res = await fetch('https://catbox.moe/user/api.php', {
-    method: 'POST',
-    body: form,
-  });
-  if (!res.ok) throw new Error(`catbox.moe upload failed [${res.status}]: ${await res.text()}`);
-  const url = (await res.text()).trim();
-  return url;
+
+  let lastErr = '';
+  for (let attempt = 0; attempt < 5; attempt++) {
+    if (attempt > 0) await sleep(2000 * attempt);
+    const blob = new Blob([fileBuffer], { type: 'image/jpeg' });
+    const form = new FormData();
+    form.append('reqtype', 'fileupload');
+    form.append('time', '72h');
+    form.append('fileToUpload', blob, fileName);
+    const res = await fetch(LITTERBOX_API, {
+      method: 'POST',
+      body: form,
+    });
+    const text = await res.text();
+    if (res.ok && text.trim().startsWith('http')) return text.trim();
+    lastErr = `[${res.status}] ${text.slice(0, 200)}`;
+    if (res.status === 429 || res.status >= 500) continue;
+    throw new Error(`litterbox upload failed ${lastErr}`);
+  }
+  throw new Error(`litterbox upload failed after retries: ${lastErr}`);
 }
 
 // ── Instagram Graph API ───────────────────────────────────────
@@ -119,9 +136,14 @@ async function main() {
   if (!INSTAGRAM_ACCESS_TOKEN) throw new Error('INSTAGRAM_ACCESS_TOKEN is not set in environment');
   if (!INSTAGRAM_USER_ID) throw new Error('INSTAGRAM_USER_ID is not set in environment');
 
-  console.log(`📸 Uploading ${images.length} image(s) to catbox.moe...`);
-  const imageUrls = await Promise.all(images.map(p => uploadToCatbox(p)));
-  imageUrls.forEach((url, i) => console.log(`   [${i + 1}] ${url}`));
+  console.log(`📸 Uploading ${images.length} image(s) to litterbox (sequential, ~1s gap — evita 429)...`);
+  const imageUrls = [];
+  for (let i = 0; i < images.length; i++) {
+    const url = await uploadToCatbox(images[i]);
+    imageUrls.push(url);
+    console.log(`   [${i + 1}/${images.length}] ${url}`);
+    if (i < images.length - 1) await sleep(1100);
+  }
 
   console.log('\n📦 Creating Instagram media containers...');
   const childIds = await Promise.all(

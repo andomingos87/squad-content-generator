@@ -10,20 +10,23 @@ Run: 2026-03-21-162055
 
 ## Dry-run
 
-Nao executado (falha antes: variaveis de ambiente ausentes).
+- **Estado:** **OK** (2026-03-22)
+- Script: `skills/instagram-publisher/scripts/publish.js` com `--dry-run`.
+- Upload: **Litterbox** (`litter.catbox.moe`) — URLs com `Content-Length` correto no HEAD (Instagram rejeitava `files.catbox.moe` com erro 9004).
+- **Carousel container ID** (nao publicado): `18063900530355076`
 
 ## Live publish
 
-- **Estado:** **nao concluido**
-- **Motivo:** ficheiro `.env` na raiz do projeto nao existe ou nao contem `INSTAGRAM_ACCESS_TOKEN` e `INSTAGRAM_USER_ID`. Sem estes valores o script `skills/instagram-publisher/scripts/publish.js` nao pode chamar a Graph API.
+- **Estado:** **concluido** (2026-03-22)
+- Comando: `publish.js` **sem** `--dry-run`.
 
 ## Post URL
 
-- (vazio — publicacao nao realizada)
+- https://www.instagram.com/p/DWMOiwflVVy/
 
 ## Post ID
 
-- (vazio)
+- `18057611600438086`
 
 ## Timestamp
 
