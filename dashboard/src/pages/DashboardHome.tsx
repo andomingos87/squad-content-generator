@@ -33,17 +33,48 @@ export function DashboardHome() {
         }}
       >
         <span>opensquad Dashboard</span>
-        <Link
-          to="/politica-privacidade"
+        <nav
           style={{
-            color: "var(--text-secondary)",
-            fontWeight: 500,
-            fontSize: 12,
-            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: 14,
+            flexShrink: 0,
           }}
         >
-          Política de privacidade
-        </Link>
+          <Link
+            to="/politica-privacidade"
+            style={{
+              color: "var(--text-secondary)",
+              fontWeight: 500,
+              fontSize: 12,
+              textDecoration: "none",
+            }}
+          >
+            Política de privacidade
+          </Link>
+          <Link
+            to="/termos"
+            style={{
+              color: "var(--text-secondary)",
+              fontWeight: 500,
+              fontSize: 12,
+              textDecoration: "none",
+            }}
+          >
+            Termos de serviço
+          </Link>
+          <Link
+            to="/exclusao-dados"
+            style={{
+              color: "var(--text-secondary)",
+              fontWeight: 500,
+              fontSize: 12,
+              textDecoration: "none",
+            }}
+          >
+            Exclusão de dados
+          </Link>
+        </nav>
       </header>
 
       <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>

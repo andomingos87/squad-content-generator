@@ -171,6 +171,16 @@ export function PoliticaPrivacidade() {
           fluxos de dados à realidade da sua organização e consulte um profissional jurídico para
           conformidade plena com a LGPD e demais normas aplicáveis.
         </p>
+        <p style={paragraph}>
+          Para pedidos de eliminação de dados no âmbito de integrações Meta, consulte{" "}
+          <Link
+            to="/exclusao-dados"
+            style={{ color: "var(--accent-cyan)", textDecoration: "none" }}
+          >
+            Exclusão de dados do usuário
+          </Link>
+          .
+        </p>
       </main>
     </div>
   );
